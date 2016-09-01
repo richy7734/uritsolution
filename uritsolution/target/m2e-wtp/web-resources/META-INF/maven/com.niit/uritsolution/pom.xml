@@ -19,11 +19,33 @@
 		<artifactId>spring-context</artifactId>
 		<version>4.1.6.RELEASE</version>
 	</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+	<dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-core</artifactId>
+    	<version>4.3.2.RELEASE</version>
+	</dependency>
+
 	<dependency>
 		<groupId>org.springframework</groupId>
-		<artifactId>spring-aop</artifactId>
+		<artifactId>spring-webmvc</artifactId>
 		<version>4.1.6.RELEASE</version>
 	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-web</artifactId>
+		<version>4.1.6.RELEASE</version>
+	</dependency>
+	<dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>servlet-api</artifactId>
+		<version>3.0-alpha-1</version>
+	</dependency>
+	<dependency>
+    	<groupId>jstl</groupId>
+    	<artifactId>jstl</artifactId>
+    	<version>1.2</version>
+	</dependency>	 
   </dependencies>
   
   <build>
