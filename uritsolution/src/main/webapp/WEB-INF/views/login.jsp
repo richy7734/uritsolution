@@ -10,7 +10,6 @@
 	<style>
 		.divForm{
 			position: relative;
-			left: 50px;
 			top:29px;
 		}
 		#loginForm{
@@ -21,33 +20,27 @@
     		border-radius: 4px;
 		}
 		#loginPanel{
-			left: 380px;
-			width: 500px;
-			height: 300px;
+			width: 500px;			
 			position: fixed;
 			background: LightGrey;
 		}
 	</style>
 </head>
 <body>
-<%@include file = "header.jsp" %>
-<br/>
 <div class = "container">
 	<div class = "panel panel-info" id = "loginPanel">
 		<div class = "panel-heading">Log in</div>
 		<div class = "panel-body">
-			<br/>
 			<table>
 			<tr>
-			<td><img id = "accLogo" src = "https://cdn4.iconfinder.com/data/icons/security-soft-1/512/register_log_in_user_login_session_authorize_open_account_access_key-512.png" width = 190px height = 190px ></td>
+			<td><img id = "accLogo" src = "resources\images\login_img.png" width = 190px height = 190px ></td>
 			<td>
 			<div class = divForm>
-			<form id = "loginForm" method = "post" action = "custm.jsp">
+			<form id = "loginForm" method = "POST" action = "CheckLogin">
+				<p>${errorMsg}</p>
 				<input type = "text" placeholder = "User name" name = "user" id = "user" required size = "25"/>
 				<br/><br/>
 				<input type = "password" placeholder = "Password" name = "pwd" id = "pwd" required size = "25"/>
-				<br/>
-				<a href = "RegTemp.jsp">Register here</a>
 				<br/><br/>
 				<center><input class = "btn btn-danger active" type = "submit" value = "Log In"/></center>
 				<br/>

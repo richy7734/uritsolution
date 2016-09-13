@@ -6,7 +6,31 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Contact Us</title>
 </head>
-<body>
-<%@include file = "header.jsp" %>>
+<body background = "resources\images\back3.png">
+<%@include file = "header.jsp"%>
+<nav class = "navbar navbar-inverse">
+	<div class = "container">
+		<div class = "navbar-header">
+			<button type = "button" class = "navbar-toggle avtive" data-toggle = "colapse" data-target = "#myNavbar">
+				<span class = "icon-bar"></span>
+				<span class = "icon-bar"></span>
+				<span class = "icon-bar"></span>
+			</button>
+		<a class = "navbar-brand" href = "home">UrItSolutions</a>
+		</div>
+		<div class = "collapse navbar-collapse" id = "myNavbar">
+			<ul class = "nav navbar-nav">
+				<li class = "active"><a href = "home">Home</a></li>
+				<li><a href = "category">Category</a></li>
+				<li><a href = "products">Products</a></li>
+			</ul>
+			<ul class = "nav navbar-nav navbar-right">
+				<li><a href = "#" data-toggle = "modal" data-target = "#loginModal"><span class = "glyphicon glyphicon-user"></span> Log in</a></li>
+				<li><a href = "aboutUs">About Us</a></li>
+				<li class = "user"><%=request.getAttribute("login.username") %></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 </body>
 </html>

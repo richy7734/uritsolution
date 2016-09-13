@@ -6,57 +6,52 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Register</title>
-	<style>
-		#regPanel{
-			left: 380px;
-			width: 500px;
-			height: 330px;
-			position: fixed;
-			background: LightGrey;
-			}
-		.divForm{
-			position: relative;
-			left: 80px;
-		}
-		input{
-			border: 1px solid DarkGrew;
-	    		border-radius: 4px;
-		}
-
-
-		#regForm{
-			text-align: center;
-			left: 50px;
-			top: 30;
-		}
-		
-	</style>
+	<title>Register [Login fail]</title>
 </head>
 <body>
 	<%@include file = "header.jsp" %>
-	<div class = "panel panel-info" id = "regPanel">
-		<div class = "panel-heading">Register</div>
-			<div class = "panel-body">
-			<table>
-				<tr>
-				<td><center><img src = "https://cdn2.iconfinder.com/data/icons/user-management/512/add-256.png" width = 190px height = 190px></center></td>
-				<td>
-				<div class = "divForm">
-				<form id = "regForm" method = "post" action = "RegTemp.asp">
-				<br/>
-				<input type = "text" placeholder = "Name" name = "name" required><br/><br/>
-				<input type = "text" placeholder = "Email" name = "email" requider><br/><br/>
-				<input type = "password" placeholder = "Password" name = "regPwd" requider><br/><br/>
-				<input type = "text" placeholder = "Address" name = "address" requider><br/><br/>
-				<input class = "btn btn-info active" type = "submit" value = "Register"/><br/><br/>
-				</form>
-				</div>
-				</td>
-				</tr>
-				</table>
-			</div>
+<nav class = "navbar navbar-inverse">
+	<div class = "container">
+		<div class = "navbar-header">
+			<button type = "button" class = "navbar-toggle avtive" data-toggle = "colapse" data-target = "#myNavbar">
+				<span class = "icon-bar"></span>
+				<span class = "icon-bar"></span>
+				<span class = "icon-bar"></span>
+			</button>
+		<a class = "navbar-brand" href = "home">UrItSolutions</a>
 		</div>
-
+		<div class = "collapse navbar-collapse" id = "myNavbar">
+			<ul class = "nav navbar-nav">
+				<li class = "active"><a href = "home">Home</a></li>
+				<li><a href = "category">Category</a></li>
+				<li><a href = "products">Products</a></li>
+			</ul>
+			<ul class = "nav navbar-nav navbar-right">
+				<li><a href = "aboutUs">About Us</a></li>
+				<li>${user}</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<br/>
+<p>Incorrect username or password...</p>
+<br/>
+<table>
+	<tr>
+		<td><a href = "#" data-dismiss = "modal" data-toggle = "modal" data-target = "#loginModal">Try again</a></td>
+		<td>---or---</td>
+		<td><a href = "#" data-dismiss = "modal" data-toggle = "modal" data-target = "#regModal">Register</a></td>
+	</tr>
+</table>
+<div class = "modal fade" id = "loginModal" role = "dialog">
+	<div class = "modal-dialog">	
+		<%@include file = "login.jsp" %>		
+	</div>
+</div>
+<div class = "modal fade" id = "regModal" role = "dialog">
+	<div class  = "modal-dialog">
+		<%@include file = "register.jsp" %>
+	</div>
+</div>
 </body>
 </html>

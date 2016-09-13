@@ -6,7 +6,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+		<param-value>/WEB-INF/dispatcher-servlet.xml,application-context.xml</param-value>
 	</context-param>
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
@@ -23,8 +23,10 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 </servlet>
-<servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>dispatcher-servlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
+
 </web-app>

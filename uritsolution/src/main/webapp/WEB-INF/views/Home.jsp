@@ -11,6 +11,9 @@
 		width: 1250px;
 		max-height: 300px;
 	}
+	li.user{
+		color: white;
+	}
 	.divSearch{
 		position: relative;
 		left: 50px
@@ -40,6 +43,35 @@
 <body ng-app = "appSearch">
 <div>
 <%@include file = "header.jsp" %>
+<nav class = "navbar navbar-inverse">
+	<div class = "container">
+		<div class = "navbar-header">
+			<button type = "button" class = "navbar-toggle avtive" data-toggle = "colapse" data-target = "#myNavbar">
+				<span class = "icon-bar"></span>
+				<span class = "icon-bar"></span>
+				<span class = "icon-bar"></span>
+			</button>
+		<a class = "navbar-brand" href = "home">UrItSolutions</a>
+		</div>
+		<div class = "collapse navbar-collapse" id = "myNavbar">
+			<ul class = "nav navbar-nav">
+				<li class = "active"><a href = "home">Home</a></li>
+				<li><a href = "category">Category</a></li>
+				<li><a href = "products">Products</a></li>
+			</ul>
+			<ul class = "nav navbar-nav navbar-right">
+				<li><a href = "#" data-toggle = "modal" data-target = "#loginModal"><span class = "glyphicon glyphicon-user"></span> Log in</a></li>
+				<li><a href = "aboutUs">About Us</a></li>
+				<li class = "user"><%=request.getAttribute("login.username") %></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class = "modal fade" id = "loginModal" role = "dialog">
+	<div class = "modal-dialog">	
+		<%@include file = "login.jsp" %>		
+	</div>
+</div>
 <div class = "cobtainer container-fluid">
 	<div class = "row">
 		<div class = "col-sm-12">
@@ -99,8 +131,7 @@
 			<td>{{product.description}}</td>
 			<td>{{product.price}}</td>
 			<td><img ng-src = {{product.image[1]}} height = "60px" width = "60px"></td>
-			<td><input type = "button" data-toggle = "modal" data-target = "#myModal" class = "btn-primary" ng-click = "" value = "View"></td>
-			<td>{{product.id}}</td>
+			<td><input type = "button" data-toggle = "modal" data-target = "#myModal" class = "btn-primary" ng-click = "view(product.id)" value = "View"></td>
 		</tr>
 	</tbody>
 	</table>
@@ -109,11 +140,11 @@
 			<div class = "modal-content">
 				<div class = "modal-header">
 					<button type = "button" class = "close" data-dismiss = "modal">&times;</button>
-					<h4 class = "modal-title">{{products[a].productn}}</h4>
+					<h4 class = "modal-title">{{products[num].productn}}</h4>
 				</div>
 				<div class = "modal-body">
-					<p>{{products[a].description}}</p>
-					<center><img ng-src = {{products[a].image[0]}} width = "300px" height = "240px"></center>
+					<p>{{products[num].description}}</p>
+					<center><img ng-src = {{products[num].image[0]}} width = "340px" height = "240px"></center>
 				</div>
 				<div class = "modal-footer">
 					<button type = "button" class = "btn btn-danger" data-dismiss = "modal">Close</button>
@@ -127,9 +158,9 @@
 	app.controller('ctrlSearch',function($scope){
 		$scope.products = [{productn:'Alienware 13',description:'Gaming Laptop',price:'Rs. 10,9000',image:['resources/images/alien_img.jpg','resources/images/alienware_thumbnail.jpg'],id:0},
 		                   {productn:'NVIDIA GeForce GTX1080',description:'Graphics Card',price:'Rs. 70,000',image:['resources/images/gtx1080_thumbnail.jpg','resources/images/gtx1080_thumbnail.jpg'],id:1},
-		                   {productn:'Cooler Master Sedion 120',description:'CPU liquid cooler',price:'Rs. 4,900',image:[{img1:''},{img2:''}],id:2},
-		                   {productn:'AMD Opteron 6300',description:'Processor',price:'Rs. 56,000',image:[{img1:''},{img2:''}],id:3}];	
-	$scope.x = function(temp){
+		                   {productn:'Cooler Master Sedion 120',description:'CPU liquid cooler',price:'Rs. 4,900',image:['resources/images/coolermaster_thumbnail.jpg','resources/images/coolermaster_img.jpg'],id:2},
+		                   {productn:'AMD Opteron 6300',description:'Processor',price:'Rs. 56,000',image:['resources/images/amd_thumbnail.png','resources/images/amd_img.jpg'],id:3}];	
+	$scope.view = function(temp){
 		$scope.num = temp;
 		};
 	});
